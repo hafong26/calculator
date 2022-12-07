@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator - HAFO</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        
+        .container {
+            border: 1px solid #000;
+            width: 100%;
+            max-width: 600px;
+            margin: auto;
+            height: 100vh;
+            padding: 15px;
+        }
+        
+        .input-group {
+            display: flex;
+            margin-bottom: 15px;
+        }
+        
+        .input-group input {
+            flex: 1;
+            font-size: 30px;
+            padding: 20px;
+            border: none;
+            outline: none;
+            background: #0001;
+            border-radius: .2em;
+            text-align: right;
+            display: flex;
+            align-items: center;
+            font-family: times;
+        }
+        
+        .btn-option {
+            display: grid;
+            grid-template-columns: auto auto auto auto;
+            gap: 2em;
+        }
+        
+        .btn-option button {
+            padding-block: 1.4em;
+            font-size: 30px;
+            outline: none;
+            border: none;
+            border-radius: 10px;
+            background: none;
+        }
+        
+        .btn-option button:active {
+            cursor: pointer;
+            background: #000;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="input-group">
+            <input type="text">
+        </div>
+        <div class="btn-option">
+            <button class="number" value="&#43;">&#43;</button>
+            <button class="number" value="&#8722;">&#8722;</i></button>
+            <button class="number" value="&#215;">&#215;</button>
+            <button class="number" value="&#247;">&#247;</button>
+            <button class="number" value="1">1</button>
+            <button class="number" value="2">2</button>
+            <button class="number" value="3">3</button>
+            <button><i class="fa-solid fa-delete-left"></i></button>
+            <button class="number" value="4">4</button>
+            <button class="number" value="5">5</button>
+            <button class="number" value="6">6</button>
+            <button class="reset">C</button>
+            <button class="number" value="7">7</button>
+            <button class="number" value="8">8</button>
+            <button class="number" value="9">9</button>
+            <button class="total" value="&#61;">&#61;</button>
+
+        </div>
+    </div>
+    <script>
+        const input = document.querySelector('.input-group input')
+        const bb = document.querySelectorAll('.btn-option .number')
+        bb.forEach(function(b) {
+            b.onclick = function() {
+                console.log(b.value)
+                input.value += b.value
+                input.focus()
+            }
+        })
+        const reset = document.querySelector('.reset')
+        reset.onclick = () => {
+            input.value = ''
+            input.focus()
+        }
+        const total = document.querySelector('.total')
+        total.onclick = () => {
+            let a = input.value
+            Number(a)
+            console.log(a)
+        }
+    </script>
+</body>
+
+</html>
